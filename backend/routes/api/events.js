@@ -39,4 +39,23 @@ router.delete('/:id', (req,res) => {
         })));
 });
 
+router.put('/:id', (req,res) => {
+    Event.findById(req.params.id, function(err, event){
+        if(!event){
+            res.status(404).send("The data is not found");
+        }else{
+            event.title= req.body.title;
+            event.description= req.body.description;
+            event.time= req.body.time;
+            event.location= req.body.location;
+            event.image= req.body.image;
+            event.link= req.body.link;
+            event.postDate= req.body.postDate;
+
+            event.save()
+            .then(event => res.json(event));
+        }
+    })
+});
+
 module.exports = router;
