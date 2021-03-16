@@ -1,4 +1,4 @@
-{
+{ 
   "scripts": {
     "test": "mocha",
     "start": "node backend/server.js",
@@ -6,10 +6,22 @@
   },
   "dependencies": {
     "body-parser": "^1.19.0",
+    "connect-mongo": "^4.4.0",
     "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "express-handlebars": "^5.2.1",
+    "express-session": "^1.17.1",
+    "method-override": "^3.0.0",
     "mocha": "^8.3.0",
-    "mongoose": "^5.11.19",
+    "moment": "^2.29.1",
+    "mongoose": "^5.12.0",
+    "morgan": "^1.10.0",
+    "passport": "^0.4.1",
+    "passport-google-oauth20": "^2.0.0"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
     "nodemon": "^2.0.7"
   }
 }

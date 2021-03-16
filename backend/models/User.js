@@ -2,28 +2,20 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-//title
-//description
-//time
-//location
-//image
-//link
-//postDate
-
-const EventSchema = new Schema({
-    title:{
+const UserSchema = new Schema({
+    googleID:{
         type: String,
         required: true
     },
-    description:{
+    displayName:{
         type: String,
         required: true
     },
-    time:{
-        type: Date,
+    firstName:{
+        type: String,
         required: true
     },
-    location:{
+    lastName:{
         type: String,
         required: true
     },
@@ -31,14 +23,10 @@ const EventSchema = new Schema({
         type: String,
         required: false
     },
-    link:{
-        type: String,
-        required: false
-    },
-    postDate:{
+    createdAt:{
         type: Date,
-        required: true
+        default: Date.now
     }
 });
 
-module.exports = mongoose.model('Event', EventSchema);
+module.exports = mongoose.model('User', UserSchema);
