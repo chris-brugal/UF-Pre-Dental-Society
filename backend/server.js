@@ -4,8 +4,10 @@ const cors = require('cors');
 const database = require('./config/keys.js').mongoURI;
 const events = require('./routes/api/events');
 const auth = require('./routes/auth/auth')
+const index = require('./routes/index/index')
 const passport = require('passport')
 const session = require('express-session')
+
 
 require('./config/passport')(passport)
 
@@ -36,14 +38,12 @@ mongoose
     .catch(err => console.log(err));
 
 // Routes
+app.use('/', index)
 app.use('/auth', auth)
 app.use('/api/events', events);
 
+app.set('views', __dirname + '/dummy_pages');
+app.engine('html', require('ejs').renderFile);
+
 app.listen(PORT, () =>  
     console.log("Server is running on Port: " + PORT) );
-
-
-
-
-
-
