@@ -2,38 +2,26 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-//title
-//description
-//time
-//location
-//image
-//link
-//postDate
-
-const EventSchema = new Schema({
-    title:{
+const OfficerSchema = new Schema({
+    displayName:{
         type: String,
         required: true
     },
-    description:{
+    position:{
         type: String,
         required: true
     },
-    time:{
-        type: Date,
-        required: true
-    },
-    location:{
+    bio:{
         type: String,
         required: true
     },
     image:{
         type: String,
-        required: false
+        required: true
     },
-    link:{
-        type: String,
-        required: false
+    rank:{
+        type: Number,
+        required: true
     },
     createdAt:{
         type: Date,
@@ -41,4 +29,4 @@ const EventSchema = new Schema({
     }
 });
 
-module.exports = mongoose.model('Event', EventSchema);
+module.exports = mongoose.model('Officer', OfficerSchema);

@@ -1,13 +1,16 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors'); 
-const database = require('./config/keys.js').mongoURI;
-const events = require('./routes/api/events');
-const auth = require('./routes/auth/auth')
-const index = require('./routes/index/index')
 const passport = require('passport')
 const session = require('express-session')
 
+// Route constants
+const events = require('./routes/api/events');
+const officers = require('./routes/api/officers');
+const auth = require('./routes/auth/auth')
+const index = require('./routes/index/index')
+
+const database = require('./config/keys.js').mongoURI;
 
 require('./config/passport')(passport)
 
@@ -23,7 +26,7 @@ app.use(passport.session())
 
 // Sessions
 app.use(session({
-    secret: 'keyboard cat',
+    secret: 'password',
     resave: false,
     saveUninitialized: false
 }))
@@ -41,6 +44,7 @@ mongoose
 app.use('/', index)
 app.use('/auth', auth)
 app.use('/api/events', events);
+app.use('/api/officers', officers)
 
 app.set('views', __dirname + '/dummy_pages');
 app.engine('html', require('ejs').renderFile);

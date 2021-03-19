@@ -26,6 +26,11 @@ const UserSchema = new Schema({
     createdAt:{
         type: Date,
         default: Date.now
+    },
+    attendancePoints:{
+        type: Number,
+        required: true,
+        default: 0
     }
 });
 

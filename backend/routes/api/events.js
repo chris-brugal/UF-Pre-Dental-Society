@@ -18,7 +18,6 @@ router.post('/', (req, res) => {
         location: req.body.location,
         image: req.body.image,
         link: req.body.link,
-        postDate: req.body.postDate
     });
 
     newEvent.save()
