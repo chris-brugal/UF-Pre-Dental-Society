@@ -1,5 +1,6 @@
 .hero-container {
-    height: 200vh;
+    background-color: white;
+    height: 75vh;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -13,7 +14,7 @@
     color: rgb(250, 163, 132);
     text-align: center;
     font-size: 35px;
-    margin-top: -600px;
+    margin-top: 225px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
@@ -44,27 +45,14 @@
     color: rgb(59, 74, 151);
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 380px) {
     .welcome > h1 {
-        font-size: 35px;
-        margin-top: -600px;
+        font-size: 25px;
+        margin-top: 8em;
     }
 
     .welcome > p {
-        font-size: 20px;
-        margin-top: 20px;
-        padding: 0 4em 4em;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .welcome > h1 {
-        font-size: 35px;
-        margin-top: -600px;
-    }
-
-    .welcome > p {
-        font-size: 18px;
+        font-size: 15px;
         margin-top: 20px;
         padding: 0 4em 4em;
     }
