@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "test": "mocha",
+    "test": "mocha client/test",
     "start": "node backend/server.js",
     "server": "nodemon backend/server.js"
   },
