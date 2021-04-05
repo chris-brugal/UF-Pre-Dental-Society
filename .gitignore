@@ -2,11 +2,12 @@
 
 # dependencies
 /node_modules
+client/node_modules
 /.pnp
 .pnp.js
 
 # keys
-/config
+backend/config
 
 # testing
 /coverage
