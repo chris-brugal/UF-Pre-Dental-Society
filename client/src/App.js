@@ -8,10 +8,13 @@ import Events from './components/pages/Events';
 import Points from './components/pages/Points';
 import JoinUs from './components/pages/JoinUs';
 import SignIn from './components/pages/SignIn';
+import {Provider} from 'react-redux';
+import store from './store';
 
 function App() {
   return (
     <>
+    <Provider store={store}>
     <Router>
       <Navbar/>
       <Switch>
@@ -23,6 +26,7 @@ function App() {
         <Route path='/sign-in' component={SignIn} />
       </Switch>
     </Router>
+    </Provider>
     </>
   );
 }
