@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Container, ListGroup, ListGroupItem, Button } from 'reactstrap'; //install reactstrap
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import {v1 as uuid} from "uuid"; 
 import { connect } from 'react-redux';
 import { getEvent, deleteEvent } from '../actions/eventActions';
 import PropTypes from 'prop-types';
@@ -19,36 +20,33 @@ class EventList extends Component {
     render() {
       const { events } = this.props.event; 
       return (
-          <div className = 'event-container'>
-            <h2>UPCOMING EVENTS</h2>
+          <section className = 'event-container'>
             <ListGroup>
                 <TransitionGroup className="event-list">
-                    {events.map(({ _id, title, time, location, description}) => (
-                        <CSSTransition key={_id} timeout={500} classNames="fade">
+                    {events.map(({id, title, time, location, description}) => (
+                        <CSSTransition key={id} timeout={100} classNames="item">
                             <ListGroupItem>
                                 <Button
                                     className="remove-btn"
-                                    color="danger"
+                                    variant="danger"
                                     size="sm"
-                                    onClick={this.onDeleteClick.bind(this, _id)}
+                                    onClick={this.onDeleteClick.bind(this, id)}
                                     >
                                     &times;
-                                    </Button>
-                                    Title: {title} <br/>
-                                    Time: {time} <br/>
-                                    Location: {location} <br/>
-                                    Description: {description} <br/>
-
+                                </Button>
+                                <h3> {title} <br/>
+                                {time} | {location} <br/>
+                                {description} </h3> 
                             </ListGroupItem>
                         </CSSTransition>
                     ))}
                 </TransitionGroup>
             </ListGroup>
-          </div>
+          </section>
         )
     }
 }
-
+        
 
 EventList.propTypes = {
     getEvent: PropTypes.func.isRequired,

@@ -1,34 +1,32 @@
 .group, .bowling, .event, .service, .pottery {
-    height: 200px;
-    width: 299px;
+  height: 200px;
+  width: 298px;
+}
+
+.group, .bowling, .event, .service {
+  margin-right: 4px;
+}
+
+.group {
+  margin-left: 5px;
+}
+
+@media screen and (max-width: 320px) {
+  .image-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .group, .bowling, .event, .service, .pottery {
+    height: 160px;
+    width: 250px;
+    margin-left: 0px;
+    margin-right: 0px;
   }
 
   .group, .bowling, .event, .service {
-    margin-right: 4px;
+    margin-bottom: 10px;
   }
-
-  .group {
-    margin-left: 5px;
-  }
-
-  @media screen and (max-width: 320px) {
-    .image-container {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .group, .bowling, .event, .service, .pottery {
-      height: 160px;
-      width: 250px;
-      margin-left: 0px;
-      margin-right: 0px;
-    }
-
-    .group, .bowling, .event, .service {
-      margin-bottom: 10px;
-    }
-  }
-
- 
+}

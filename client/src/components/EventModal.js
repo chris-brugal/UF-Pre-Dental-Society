@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import {
-    Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Input
-} from 'reactstrap';
+import { Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Input } from 'reactstrap';
 import { connect } from 'react-redux';
 import { addEvent } from '../actions/eventActions';
 import './EventModal.css';
+import {v1 as uuid} from "uuid";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class EventModal extends Component {
     state = {
@@ -29,12 +29,11 @@ class EventModal extends Component {
         e.preventDefault();
 
         const newEvent = {
+            id: uuid(),
             title: this.state.title,
-            description: this.state.description,
             time: this.state.time,
             location: this.state.location,
-            image: this.state.image,
-            link: this.state.link
+            description: this.state.description
         }
 
         // add item via addEvent action
@@ -71,7 +70,7 @@ class EventModal extends Component {
                                 type="text"
                                 name="time"
                                 id="event"
-                                placeholder="Time"
+                                placeholder="Date and Time"
                                 onChange={this.onChange}
                             /> <br/>
                             <Input
@@ -86,20 +85,6 @@ class EventModal extends Component {
                                 name="description"
                                 id="event"
                                 placeholder="Description"
-                                onChange={this.onChange}
-                            /> <br/>
-                            <Input
-                                type="text"
-                                name="image"
-                                id="event"
-                                placeholder="image"
-                                onChange={this.onChange}
-                            /> <br/>
-                            <Input
-                                type="text"
-                                name="link"
-                                id="event"
-                                placeholder="link"
                                 onChange={this.onChange}
                             /> <br/>
                             <Button
