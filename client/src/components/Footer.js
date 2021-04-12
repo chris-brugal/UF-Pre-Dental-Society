@@ -1,6 +1,6 @@
 import React from 'react';
+import { Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import { Button } from './Button';
 import './Footer.css';
 
 function Footer() {
@@ -12,7 +12,7 @@ function Footer() {
                     <form>
                         <input type="email" name="email" placeholder="Your Email"
                         className="footer-input"/>
-                        <Button buttonStyle='btn--outline'>Submit</Button>
+                        <Button class="btn btn-light">Submit</Button>
                     </form>
                 </div>
                 <p className="footer-subscription-text">Contact our president at pds.president@gmail.com</p>

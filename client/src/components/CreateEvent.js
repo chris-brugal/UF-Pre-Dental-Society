@@ -1,61 +1,60 @@
-import React, {useState} from 'react';
-import './CreateEvent.css'
-import '../App.css';
+import React, { Component } from 'react';
+import { Container, ListGroup, ListGroupItem, Button } from 'reactstrap'; //install reactstrap
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import {v1 as uuid} from "uuid"; 
+import { connect } from 'react-redux';
+import { getEvent, deleteEvent } from '../actions/eventActions';
+import PropTypes from 'prop-types';
+import './CreateEvent.css';
 
-function CreateEvent() {
+class EventList extends Component {
 
-    const  [input, setInput] = useState({
-        title: '',
-        date: '',
-        time: '',
-        locationlink: '',
-        description: ''
-    })
-
-    function handleChange(event) {
-        const {name, value} = event.target;
-
-        setInput(prevInput => {
-            return {
-                ...prevInput,
-                [name]: value
-            }
-        })
+    componentDidMount() {
+        this.props.getEvent();
     }
 
-    function handleClick(event) {
-        event.preventDefault();
-        console.log(input);
+    onDeleteClick = (id) => {
+        this.props.deleteEvent(id);
     }
 
-    return (
-        <div className='create-container'>
-            <h2>ADD NEW EVENT</h2>
-            <form>
-                <div className='form-group'>
-                    <input onChange={handleChange} name="title" value={input.title} className="form-control" placeholder="title"></input>
-                </div>
+    render() {
+      const { events } = this.props.event; 
+      return (
+          <section className = 'event-container'>
+            <ListGroup>
+                <TransitionGroup className="event-list">
+                    {events.map(({id, title, time, location, description}) => (
+                        <CSSTransition key={id} timeout={100} classNames="item">
+                            <ListGroupItem>
+                                <Button
+                                    className="remove-btn"
+                                    variant="danger"
+                                    size="sm"
+                                    onClick={this.onDeleteClick.bind(this, id)}
+                                    >
+                                    &times;
+                                </Button>
+                                <h3> {title} <br/>
+                                {time} | {location} <br/>
+                                {description} </h3> 
+                            </ListGroupItem>
+                        </CSSTransition>
+                    ))}
+                </TransitionGroup>
+            </ListGroup>
+          </section>
+        )
+    }
+}
+        
 
-                <div className='form-group'>
-                    <input onChange={handleChange} name="date" value={input.date} className="form-control" placeholder="date"></input>
-                </div>
-
-                <div className='form-group'>
-                    <input onChange={handleChange} name="time" value={input.time} clasmesName="form-control" placeholder="time"></input>
-                </div>
-
-                <div className='form-group'>
-                    <input onChange={handleChange} name="locationlink" value={input.locationlink} className="form-control" placeholder="location/link"></input>
-                </div>
-
-                <div className='form-group'>
-                    <textarea onChange={handleChange} name="description" value={input.description} className="form-control" placeholder="description"></textarea>
-                </div>
-
-                <button onClick={handleClick}>SUBMIT</button>
-            </form>
-        </div>
-    )
+EventList.propTypes = {
+    getEvent: PropTypes.func.isRequired,
+    event: PropTypes.object.isRequired
 }
 
-export default CreateEvent;
+const mapStateToProps = (state) => ({
+    event: state.event
+});
+
+export default connect(mapStateToProps, { getEvent, deleteEvent })(EventList);
