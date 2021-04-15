@@ -3,7 +3,7 @@ import '../../App.css';
 import PointsInfo from '../PointsInfo';
 import Footer from '../Footer';
 
-export default function Events () {
+export default function Points () {
     return (
         <>
         <br></br>

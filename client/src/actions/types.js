@@ -8,4 +8,4 @@ export const EDIT_OFFICER = 'EDIT_OFFICER';
 export const DELETE_OFFICER = 'DELETE_OFFICER';
 export const ADD_OFFICER = 'ADD_OFFICER';
 
-export const EVENTS_LOADING = 'EVENTS_LOADING'
+export const EVENTS_LOADING = 'EVENTS_LOADING';

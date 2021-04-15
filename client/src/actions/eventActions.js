@@ -28,7 +28,6 @@ export const deleteEvent = (id) => dispatch => {
 };
 
 export const addEvent = (event) => dispatch => {
-    console.log("hi");
     axios
         .post('/api/events', event)
         .then(res=>

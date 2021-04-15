@@ -52,7 +52,7 @@ function Navbar() {
               <Link to='/join-us' className='nav-links' onClick={closeMobileMenu}>JOIN US!</Link>
             </li>
             <li className='nav-item'>
-              <Link to='/sign-in'className='nav-links'onClick={closeMobileMenu}>SIGN IN</Link>
+              <a href='http://localhost:5000/auth/google' className='nav-links' onClick={closeMobileMenu}>SIGN IN</a>
             </li>
           </ul>
         </div>
