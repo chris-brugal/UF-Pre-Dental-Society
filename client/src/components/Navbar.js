@@ -54,6 +54,9 @@ function Navbar() {
             <li className='nav-item'>
               <a href='http://localhost:5000/auth/google' className='nav-links' onClick={closeMobileMenu}>SIGN IN</a>
             </li>
+            <li className='nav-item'>
+              <a href='http://localhost:5000/auth/logout' className='nav-links' onClick={closeMobileMenu}>SIGN OUT</a>
+            </li>
           </ul>
         </div>
       </nav>
