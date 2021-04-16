@@ -15,3 +15,124 @@ opacity: 1;
     opacity: 0.01;
     transition: opacity 500ms ease-in;
 }
+
+.hoverPhoto {
+    position:relative;
+    padding: 0x;
+    width: 400px;
+    display: block;
+    cursor: pointer;
+    overflow: hidden;
+  }
+  
+  .content {
+    opacity: 0;
+    font-size: 18px;
+    position: absolute;
+    padding: 10px;
+    top: 0;
+    left: 0;
+    color: #daf1ff;
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 400px;
+    height: 400px;
+    -webkit-transition: all 400ms ease-out;
+    -moz-transition: all 400ms ease-out;
+    -o-transition: all 400ms ease-out;
+    -ms-transition: all 400ms ease-out;
+    transition: all 400ms ease-out;
+    text-align: center;
+  }
+  
+  .hoverPhoto .content:hover {
+    opacity: 1;
+  }
+  
+  .hoverPhoto .content .text {
+    height: 0;
+    opacity: 1;
+    transition-delay: 0s;
+    transition-duration: 0.4s;
+  }
+  
+  .hoverPhoto .content:hover .text {
+    opacity: 1;
+   
+  }
+
+  .name{
+    color: white;
+  }
+
+  .title{
+    color:rgb(250, 163, 132);
+  }
+
+  .bio{
+    padding-top: 20px;
+  }
+
+
+
+.fileUpload {
+align-items: left;
+}
+
+@media screen and (max-width: 960px) {
+  .hoverPhoto {
+    position:relative;
+    padding: 10px;
+    width: 800px;
+    height: 420px;
+    display: block;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 1);
+  }
+
+ 
+
+
+  .content {
+    opacity: 1;
+    font-size: 18px;
+    position: absolute;
+    padding: 10px;
+    top: 0;
+    left: 420px;
+    color: #daf1ff;
+   background-color: rgba(0,0,0,0);
+    width: 800px;
+    height: 500px;
+    -webkit-transition: all 400ms ease-out;
+    -moz-transition: all 400ms ease-out;
+    -o-transition: all 400ms ease-out;
+    -ms-transition: all 400ms ease-out;
+    transition: all 400ms ease-out;
+    text-align: left;
+    
+  }
+
+ 
+
+  .name{
+    font-size: 30px;
+    width: 350px;
+   
+    text-align: center;
+    color: white;
+  }
+
+  .title{
+    
+    color: rgb(250, 163, 132);
+    width: 350px;
+    text-align: center;
+  }
+
+  .bio{
+    width: 350px;
+    padding-top: 20px;
+  }
+  
+  }
+

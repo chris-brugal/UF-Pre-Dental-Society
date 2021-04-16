@@ -6,6 +6,7 @@ import './CreateOfficer.css';
 import { connect } from 'react-redux';
 import { getOfficer, deleteOfficer, editOfficer, addOfficer } from '../actions/officerActions';
 import PropTypes from 'prop-types';
+import photo from '../images/bowling.jpg';
 
 class CreateOfficer extends Component {
 
@@ -43,7 +44,7 @@ return (
         }}>Add Item</Button>
         <ListGroup>
             <TransitionGroup className="officer-pics">
-                {officers.map(({ id, displayName }) => (
+                {officers.map(({ id, displayName, position, bio }) => (
                 <CSSTransition key={id} timeout={500} classNames="fade">
                 <ListGroupItem>
                     <Button
@@ -58,7 +59,20 @@ return (
                     >
                     &times;
                     </Button>
-                    {displayName}
+                   
+        <div class="hoverPhoto">
+            <img src={photo} id='photo' width="400" height="400" alt="tree" />
+            <div class="content" >
+                <h1 className='name'>{displayName}</h1>
+                    <h3 className='title'>{position}</h3>
+                    
+                    <h3 className='bio' >{bio}</h3>
+             </div>
+        </div>
+       
+    
+
+                   
                 </ListGroupItem>
                 </CSSTransition>
                 ))}
