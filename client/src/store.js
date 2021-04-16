@@ -12,7 +12,7 @@ const store = createStore(
     compose(
         applyMiddleware(...middleware),
         /* TO BE REMOVED ONCE DEPLOYED */
-        window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+        window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : f => f
     )
 );
 
