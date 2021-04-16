@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Container, ListGroup, ListGroupItem, Button } from 'reactstrap'; //install reactstrap
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import {v1 as uuid} from 'uuid'; 
 import './CreateOfficer.css';
 import { connect } from 'react-redux';
 import { getOfficer, deleteOfficer, editOfficer, addOfficer } from '../actions/officerActions';
@@ -24,6 +23,10 @@ compoentDidMount() {
 this.props.getOfficer();
 }
 
+onDeleteClick = (id) => {
+    this.props.deleteOfficer(id);
+}
+
 //OfficerPic class here
 render() {
 const { officers } = this.props.officer;
@@ -32,16 +35,7 @@ return (
     
     <Container>
          <h1>test</h1>
-        <Button color="dark"
-        style={{marginBottom: '2rem'}}
-        onClick={() => {
-            const name = prompt('Enter Item');
-            if(name) {
-                this.setState(state => ({
-                    officers: [...state.officers, { id: uuid(), displayName: name }]
-                }));
-            }
-        }}>Add Item</Button>
+        
         <ListGroup>
             <TransitionGroup className="officer-pics">
                 {officers.map(({ id, displayName, position, bio }) => (
@@ -51,11 +45,7 @@ return (
                     className="remove-btn"
                     color="danger"
                     size="sm"
-                    onClick={() => {
-                        this.setState(state => ({
-                        officers: state.officers.filter(officer => officer.id !== id)
-                    }));
-                    }}
+                    onClick={this.onDeleteClick.bind(this, id)}
                     >
                     &times;
                     </Button>
