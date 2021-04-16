@@ -2,8 +2,9 @@ import path from 'path'
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors'); 
-const passport = require('passport')
-const session = require('express-session')
+const passport = require('passport');
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
 
 // Route constants
 const events = require('./routes/api/events');
@@ -29,7 +30,8 @@ app.use(passport.session())
 app.use(session({
     secret: 'password',
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
+    store: new MongoStore ({ mongooseConnection: mongoose.connection })
 }))
 
 // Mongoose
