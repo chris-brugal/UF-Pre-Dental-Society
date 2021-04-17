@@ -17,6 +17,10 @@ class CreateOfficer extends Component {
         this.props.deleteOfficer(id);
     }
 
+    static propTypes = {
+        isAuthenticated: PropTypes.bool
+    }
+
     //OfficerPic class here
     render() {
         const { officers } = this.props.officer;
@@ -26,22 +30,25 @@ class CreateOfficer extends Component {
                 <Container >
                     <div className ="grid-container">
                         <TransitionGroup className="officer-pics">
-                            {officers.map(({ _id, displayName, position, bio }) => (
+                            {officers.map(({ _id, displayName, position, bio, rank }) => (
                             <CSSTransition key={_id} timeout={500} classNames="fade">
                                 <div className="hoverPhoto">
+                                { this.props.isAuthenticated ? 
                                 <Button
                                     className="remove-btn"
                                     
                                     onClick={this.onDeleteClick.bind(this, _id)}
                                     >
                                     &times;
-                                </Button> 
+                                </Button> : null }
                                 <img src={photo} className='photo' width="400" height="400" alt="tree" />
                                     <div className="content" >
                                         <div className="text-area">
                                             <h1 className='name'>{displayName}</h1>
                                             <h3 className='title'>{position}</h3>
                                             <h3 className='bio' >{bio}</h3>
+                                            { this.props.isAuthenticated ?
+                                            <h3 className='bio' >Current rank: #{rank}</h3> : null }
                                         </div>
                                     </div>
                                 </div>            
@@ -61,7 +68,8 @@ CreateOfficer.propTypes = {
 }
 
 const mapStateToProps = (state) => ({
-    officer: state.officer
+    officer: state.officer,
+    isAuthenticated: state.auth.isAuthenticated
 });
 
-export default connect(mapStateToProps, {getOfficer, deleteOfficer })(CreateOfficer);
+export default connect(mapStateToProps, { getOfficer, deleteOfficer })(CreateOfficer);

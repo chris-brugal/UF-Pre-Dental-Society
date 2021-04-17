@@ -3,7 +3,7 @@ import { Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Input, }
 import { connect } from 'react-redux';
 import { addOfficer } from '../actions/officerActions';
 import './CreateOfficer.css';
-
+import PropTypes from 'prop-types';
 import {v1 as uuid} from "uuid";
 
 
@@ -16,6 +16,10 @@ class OfficerModal extends Component {
         image: 'Image belongs here',
         rank: ''
     };
+
+    static propTypes = {
+        isAuthenticated: PropTypes.bool
+    }
 
     toggle = () => {
         this.setState({
@@ -49,13 +53,14 @@ class OfficerModal extends Component {
     render() {
         return(
             <div className="officer-modal">
+                { this.props.isAuthenticated ?
                 <Button className="addOfficer" 
                 onClick={this.toggle}
                 color="dark"
                 
                 >
                 Add Officer
-                </Button>
+                </Button> : null }
 
                 <Modal
                     isOpen={this.state.modal}
@@ -90,7 +95,7 @@ class OfficerModal extends Component {
                                         type="text"
                                         name="rank"
                                         id='officer'
-                                        placeholder='Rank (order for the photos)'
+                                        placeholder='Rank number to set order on page (Ex: 1 = First Photo on Page)'
                                         onChange={this.onChange}
                                     /> <br/>
 
@@ -108,7 +113,8 @@ class OfficerModal extends Component {
 }
 
 const mapStateToProps = state => ({
-    officer: state.officer
+    officer: state.officer,
+    isAuthenticated: state.auth.isAuthenticated
 });
 
 export default connect(mapStateToProps, {addOfficer})(OfficerModal);

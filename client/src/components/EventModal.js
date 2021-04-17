@@ -76,7 +76,7 @@ class EventModal extends Component {
                                 type="text"
                                 name="time"
                                 id="event"
-                                placeholder="Date/Time { mm/dd/yy @ XX:YY AM/PM }"
+                                placeholder="Date and/or Time"
                                 onChange={this.onChange}
                             /> <br/>
                             <Input
@@ -97,7 +97,7 @@ class EventModal extends Component {
                                 color="dark"
                                 style={{marginTop: '2rem'}}
                                 block
-                            >Submit</Button>
+                                >Submit</Button>
                         </FormGroup>
                     </Form>
                 </ModalBody>

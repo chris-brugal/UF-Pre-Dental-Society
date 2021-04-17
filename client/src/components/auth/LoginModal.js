@@ -67,9 +67,9 @@ class LoginModal extends Component {
 
     render() {
         return(
-            <div className = 'nav-item'>
-                <NavLink className='nav-links' onClick={this.toggle} href='#'>
-                    ADMIN   LOGIN
+            <div>
+                <NavLink className='link-text' onClick={this.toggle} href='#'>
+                    ADMIN LOGIN
                 </NavLink>
                 <Modal
                     isOpen={this.state.modal}

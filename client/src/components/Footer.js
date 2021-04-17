@@ -7,15 +7,9 @@ function Footer() {
     return (
         <div className='footer-container'>
             <section className="footer-subscription">
-                <p className="footer-subscription-heading">Sign up to be added to our Listserv!</p>
-                <div className="input-areas">
-                    <form>
-                        <input type="email" name="email" placeholder="Your Email"
-                        className="footer-input"/>
-                        <Button className="btn btn-light">Submit</Button>
-                    </form>
-                </div>
-                <p className="footer-subscription-text">Contact our president at pds.president@gmail.com</p>
+                <p className="footer-subscription-heading">Contact our president at pds.president@gmail.com</p>
+                <a target="_blank" className="btn btn-secondary" href="mailto:pds.president@gmail.com">SIGN UP FOR OUR LISTSERV!</a>
+                <p className="footer-subscription-text">Put "Listserv Request" in the Subject</p>
             </section>
             <section className="social-media">
                 <div className="social-media-wrap">
