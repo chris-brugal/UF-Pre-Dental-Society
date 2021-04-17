@@ -5,7 +5,7 @@ import './CreateOfficer.css';
 import { connect } from 'react-redux';
 import { getOfficer, deleteOfficer, editOfficer, addOfficer } from '../actions/officerActions';
 import PropTypes from 'prop-types';
-import photo from '../images/bowling.jpg';
+import photo from '../images/officer-default.png';
 
 class CreateOfficer extends Component {
 

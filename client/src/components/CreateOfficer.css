@@ -104,7 +104,12 @@ row-gap: 45px;
     font-size: 18px;
   }
 
-
+.addOfficer{
+  background-color: white;
+  color:#00005c;
+  width: 400px;
+  height: 400px;
+}
 
 .fileUpload {
 align-items: left;

@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Input, } from 'reactstrap';
 import { connect } from 'react-redux';
 import { addOfficer } from '../actions/officerActions';
-//import './EventModal.css';
+import addOfficerButton from './add-officer-button.png';
+import './CreateOfficer.css';
+
 import {v1 as uuid} from "uuid";
-//import { container } from 'reactStrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 class OfficerModal extends Component {
     state = {
@@ -45,11 +46,9 @@ class OfficerModal extends Component {
     render() {
         return(
             <div>
-                <Button
-                color="dark"
-                style={{marginBottom: "2rem"}}
-                onClick={this.toggle}
-                >Add Officer</Button>
+                <Button className="addOfficer" style={{color:"red"}}>
+                <img src={addOfficerButton} width="400" height="400" alt="tree" />
+                </Button>
 
                 <Modal
                     isOpen={this.state.modal}
