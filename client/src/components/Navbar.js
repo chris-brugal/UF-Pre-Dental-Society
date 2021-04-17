@@ -3,6 +3,7 @@ import { Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 import RegisterModal from './auth/RegisterModal'
+import Logout from "./auth/Logout";
 
 function Navbar() {
   const [click, setClick] = useState(false);
@@ -56,7 +57,7 @@ function Navbar() {
               <RegisterModal onClick={closeMobileMenu}/>
             </li>
             <li className='nav-item'>
-              <a href='http://localhost:5000/auth/logout' className='nav-links' onClick={closeMobileMenu}>SIGN OUT</a>
+              <Logout onClick={closeMobileMenu}/>
             </li>
           </ul>
         </div>
