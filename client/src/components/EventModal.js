@@ -5,6 +5,7 @@ import { addEvent } from '../actions/eventActions';
 import './EventModal.css';
 import {v1 as uuid} from "uuid";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import PropTypes from 'prop-types';
 
 class EventModal extends Component {
     state = {
@@ -13,6 +14,10 @@ class EventModal extends Component {
         time: '',
         location: '',
         description: ''
+    }
+
+    static propTypes = {
+        isAuthenticated: PropTypes.bool
     }
 
     toggle = () => {
@@ -46,10 +51,11 @@ class EventModal extends Component {
     render() {
         return(
             <div className = 'modal-container'>
+                { this.props.isAuthenticated ? 
                 <Button
                     color="dark"
                     onClick={this.toggle}
-                >Add New Event</Button>
+                >Add New Event</Button> : null }
 
                 <Modal
                     isOpen={this.state.modal}
@@ -70,7 +76,7 @@ class EventModal extends Component {
                                 type="text"
                                 name="time"
                                 id="event"
-                                placeholder="Date and Time"
+                                placeholder="Date and/or Time"
                                 onChange={this.onChange}
                             /> <br/>
                             <Input
@@ -91,7 +97,7 @@ class EventModal extends Component {
                                 color="dark"
                                 style={{marginTop: '2rem'}}
                                 block
-                            >Submit</Button>
+                                >Submit</Button>
                         </FormGroup>
                     </Form>
                 </ModalBody>
@@ -102,7 +108,8 @@ class EventModal extends Component {
 }
 
 const mapStateToProps = state => ({
-    event: state.event
+    event: state.event,
+    isAuthenticated: state.auth.isAuthenticated
 });
 
 export default connect(mapStateToProps, { addEvent })(EventModal);

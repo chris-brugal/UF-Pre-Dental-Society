@@ -1,0 +1,23 @@
+.modal-container {
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.link-text {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding-top: 25px;
+    height: 100%;
+    padding-bottom: 25px;
+}
+
+.link-text:hover {
+    border-bottom: 4px solid #fff;
+    transition: all 0.2s ease-out;
+    text-decoration: none;
+}

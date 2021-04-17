@@ -48,6 +48,7 @@
 
 .nav-item {
   height: 80px;
+  align-items: center;
 }
 
 .nav-links {
@@ -62,6 +63,7 @@
 .nav-links:hover {
   border-bottom: 4px solid #fff;
   transition: all 0.2s ease-out;
+  text-decoration: none;
 }
 
 .fa-bars {
@@ -158,7 +160,9 @@
   }
 }
 
-@media screen and (max-width: 380px) {
+
+
+@media screen and (max-width: 1500px) {
   .logo {
     width: 25px;
     height: 25px;
@@ -166,28 +170,15 @@
   }
 
   .navbar {
-    height: 80px;
-  }
-
-  .navbar-logo {
-    margin-top: 15px;
-    font-size: 1rem;
-  }
-}
-
-@media screen and (max-width: 800px) {
-  .logo {
-    width: 25px;
-    height: 25px;
-    margin-left: -40px;
-  }
-
-  .navbar {
-    height: 80px;
+    height: 100px;
   }
 
   .navbar-logo {
     margin-top: 15px;
     font-size: 1.25rem;
+  }
+
+  .nav-menu {
+    margin-left: 0px;
   }
 }

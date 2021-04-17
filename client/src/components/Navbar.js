@@ -2,6 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
+import RegisterModal from './auth/RegisterModal'
+import Logout from './auth/Logout';
+import LoginModal from './auth/LoginModal';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 function Navbar() {
   const [click, setClick] = useState(false);
@@ -52,10 +57,10 @@ function Navbar() {
               <Link to='/join-us' className='nav-links' onClick={closeMobileMenu}>JOIN US!</Link>
             </li>
             <li className='nav-item'>
-              <a href='http://localhost:5000/auth/google' className='nav-links' onClick={closeMobileMenu}>SIGN IN</a>
+              <LoginModal onClick={closeMobileMenu}/>
             </li>
             <li className='nav-item'>
-              <a href='http://localhost:5000/auth/logout' className='nav-links' onClick={closeMobileMenu}>SIGN OUT</a>
+              <Logout onClick={closeMobileMenu}/>
             </li>
           </ul>
         </div>
@@ -65,3 +70,10 @@ function Navbar() {
 }
 
 export default Navbar;
+
+
+/*          
+<li className='nav-item'>
+  <RegisterModal onClick={closeMobileMenu}/>
+</li>
+*/

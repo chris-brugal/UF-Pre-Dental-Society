@@ -24,14 +24,14 @@
 
 .footer-subscription-heading {
     color: white;
-    font-size: 24px;
+    font-size: 15px;
     padding-top: 1rem;
     padding-bottom: 1rem;
 }
 
 .footer-subscription-text {
     color: white;
-    font-size: 17px;
+    font-size: 13.5px;
     padding-bottom: 1rem;
 }
 
@@ -79,4 +79,4 @@
     .footer-subscription-heading {
         font-size: 14px;
     }
-}
+}   

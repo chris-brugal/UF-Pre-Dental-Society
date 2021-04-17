@@ -2,14 +2,6 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-//title
-//description
-//time
-//location
-//image
-//link
-//postDate
-
 const EventSchema = new Schema({
     title:{
         type: String,
@@ -20,20 +12,12 @@ const EventSchema = new Schema({
         required: true
     },
     time:{
-        type: Date,
+        type: String,
         required: true
     },
     location:{
         type: String,
         required: true
-    },
-    image:{
-        type: String,
-        required: false
-    },
-    link:{
-        type: String,
-        required: false
     },
     createdAt:{
         type: Date,
