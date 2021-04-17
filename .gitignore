@@ -9,6 +9,9 @@ client/node_modules
 # testing
 /coverage
 
+# keys
+.env
+
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
