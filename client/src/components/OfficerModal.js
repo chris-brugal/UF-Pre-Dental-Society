@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Input, } from 'reactstrap';
 import { connect } from 'react-redux';
 import { addOfficer } from '../actions/officerActions';
-import addOfficerButton from './add-officer-button.png';
 import './CreateOfficer.css';
 
 import {v1 as uuid} from "uuid";
