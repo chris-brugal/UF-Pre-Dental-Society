@@ -81,7 +81,7 @@ row-gap: 45px;
   }
 
   .name{
-    font-size: 30px;
+    font-size: 35px;
     text-align: center;
     color: white;
     height: 7px;
@@ -90,7 +90,7 @@ row-gap: 45px;
   .title{
     
     color: rgb(250, 163, 132);
-    height: 0px;
+    margin-top: 2rem;
     padding-bottom: 0px;
     text-align: center;
     font-size: 20px;
@@ -104,11 +104,17 @@ row-gap: 45px;
     font-size: 18px;
   }
 
-.addOfficer{
+.officer-modal{
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.photo{
   background-color: white;
-  color:#00005c;
-  width: 400px;
-  height: 400px;
 }
 
 .fileUpload {

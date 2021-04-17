@@ -5,8 +5,8 @@ import './CreateOfficer.css';
 import { connect } from 'react-redux';
 import { getOfficer, deleteOfficer, editOfficer, addOfficer } from '../actions/officerActions';
 import PropTypes from 'prop-types';
-//import photo from '../images/bowling.jpg';
-import photo from './officer-default.png';
+import photo from '../images/officer-default.png';
+//import photo from './officer-default.png';
 
 class CreateOfficer extends Component {
 
@@ -42,7 +42,7 @@ return (
                     >
                     &times;
             </Button> 
-            <img src={photo} id='photo' width="400" height="400" alt="tree" />
+            <img src={photo} className='photo' width="400" height="400" alt="tree" />
             
             <div class="content" >
             

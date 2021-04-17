@@ -45,9 +45,13 @@ class OfficerModal extends Component {
 
     render() {
         return(
-            <div>
-                <Button className="addOfficer" onClick={}>
-                <img src={addOfficerButton} width="400" height="400" alt="tree" />
+            <div className="officer-modal">
+                <Button className="addOfficer" 
+                onClick={this.toggle}
+                color="dark"
+                
+                >
+                Add Officer
                 </Button>
 
                 <Modal
