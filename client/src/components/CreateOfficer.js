@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, ListGroup, ListGroupItem, Button } from 'reactstrap'; //install reactstrap
+import { Container, ListGroup, ListGroupItem, Button, Col } from 'reactstrap'; //install reactstrap
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import './CreateOfficer.css';
 import { connect } from 'react-redux';
@@ -8,16 +8,6 @@ import PropTypes from 'prop-types';
 import photo from '../images/bowling.jpg';
 
 class CreateOfficer extends Component {
-
-    /*
-    state = {
-        officers: [
-            { id: uuid(), name: 'Nate'},
-            { id: uuid(), name: 'Diana'},
-            { id: uuid(), name: 'Bobby'}
-        ]
-    }
- */
 
 compoentDidMount() {
 this.props.getOfficer();
@@ -33,42 +23,44 @@ const { officers } = this.props.officer;
 //const { officers } = this.state;
 return (
     
-    <Container>
-         <h1>test</h1>
+    <div className="center-everything">
+    <Container >
         
-        <ListGroup>
+        
+        <div className ="grid-container">
             <TransitionGroup className="officer-pics">
                 {officers.map(({ id, displayName, position, bio }) => (
                 <CSSTransition key={id} timeout={500} classNames="fade">
-                <ListGroupItem>
-                    <Button
+                
+               
+        <div class="hoverPhoto">
+        <Button
                     className="remove-btn"
-                    color="danger"
-                    size="sm"
+                    
                     onClick={this.onDeleteClick.bind(this, id)}
                     >
                     &times;
-                    </Button>
-                   
-        <div class="hoverPhoto">
+            </Button> 
             <img src={photo} id='photo' width="400" height="400" alt="tree" />
+            
             <div class="content" >
+            
+            <div className="text-area">
                 <h1 className='name'>{displayName}</h1>
                     <h3 className='title'>{position}</h3>
-                    
                     <h3 className='bio' >{bio}</h3>
-             </div>
-        </div>
-       
-    
-
-                   
-                </ListGroupItem>
+                   </div>
+            </div>
+        </div>    
+              
+                
                 </CSSTransition>
                 ))}
                 </TransitionGroup >
-        </ListGroup>
+                </div>
+               
     </Container>
+    </div>
    
             );
         }
