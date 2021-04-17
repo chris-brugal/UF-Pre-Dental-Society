@@ -46,7 +46,7 @@ class OfficerModal extends Component {
     render() {
         return(
             <div>
-                <Button className="addOfficer" style={{color:"red"}}>
+                <Button className="addOfficer" onClick={}>
                 <img src={addOfficerButton} width="400" height="400" alt="tree" />
                 </Button>
 
