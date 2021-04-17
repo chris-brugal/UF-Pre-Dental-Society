@@ -2,17 +2,19 @@ import React, { Component } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Input, } from 'reactstrap';
 import { connect } from 'react-redux';
 import { addOfficer } from '../actions/officerActions';
-//import './EventModal.css';
+import './CreateOfficer.css';
+
 import {v1 as uuid} from "uuid";
-//import { container } from 'reactStrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 class OfficerModal extends Component {
     state = {
         modal: false,
         displayName: '',
         position: '',
-        bio: ''
+        bio: '',
+        image: 'Image belongs here',
+        rank: ''
     };
 
     toggle = () => {
@@ -32,7 +34,9 @@ class OfficerModal extends Component {
             id: uuid(),
             displayName: this.state.displayName,
             position: this.state.position,
-            bio: this.state.bio
+            bio: this.state.bio,
+            image: this.state.image,
+            rank: this.state.rank
         }
 
         //Add officer via addOfficer action
@@ -44,12 +48,14 @@ class OfficerModal extends Component {
 
     render() {
         return(
-            <div>
-                <Button
-                color="dark"
-                style={{marginBottom: "2rem"}}
+            <div className="officer-modal">
+                <Button className="addOfficer" 
                 onClick={this.toggle}
-                >Add Officer</Button>
+                color="dark"
+                
+                >
+                Add Officer
+                </Button>
 
                 <Modal
                     isOpen={this.state.modal}
@@ -65,30 +71,36 @@ class OfficerModal extends Component {
                                         id='officer'
                                         placeholder='Name'
                                         onChange={this.onChange}
-                                        /> <br/>
-                                        <Input
+                                    /> <br/>
+                                    <Input
                                         type="text"
                                         name="position"
                                         id='officer'
                                         placeholder='Position'
                                         onChange={this.onChange}
-                                        /> <br/>
-                                        <Input
+                                    /> <br/>
+                                    <Input
                                         type="text"
                                         name="bio"
                                         id='officer'
                                         placeholder='Bio'
                                         onChange={this.onChange}
-                                        /> <br/>
+                                    /> <br/>
+                                    <Input
+                                        type="text"
+                                        name="rank"
+                                        id='officer'
+                                        placeholder='Rank (order for the photos)'
+                                        onChange={this.onChange}
+                                    /> <br/>
 
-                                        <Button
-                                        color="dark"
-                                        style ={{marginTop: '2rem' }} block
-                                        >Add Officer</Button>
+                                    <Button
+                                    color="dark"
+                                    style ={{marginTop: '2rem' }} block
+                                    >Add Officer</Button>
                                 </FormGroup>
                             </Form>
                         </ModalBody>
-
                     </Modal>
             </div>
         );

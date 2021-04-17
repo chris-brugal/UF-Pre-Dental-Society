@@ -1,37 +1,22 @@
-import {v1 as uuid} from 'uuid';
-import { GET_OFFICER, ADD_OFFICER, EDIT_OFFICER, DELETE_OFFICER } from '../actions/types';
+import { GET_OFFICER, ADD_OFFICER, EDIT_OFFICER, DELETE_OFFICER, EVENTS_LOADING } from '../actions/types';
 
 const initialState = {
-    officers: [{
-        id: uuid(),
-        displayName: "Firstname Lastname",
-        position: "President",
-        bio: "test Bio",
-        image: "youtube.com",
-        rank: 1,
-        createdAt:431242314231
-    },
-    {
-        id: uuid(),
-        displayName: "Firstname2 Lastname2",
-        position: "Vice President",
-        bio: "test Bio",
-        image: "youtube.com",
-        rank: 2,
-        createdAt:431242314235
-    }]
+    officers: [],
+    loading: false
 }
 
 export default function(state = initialState, action){
     switch(action.type){
         case GET_OFFICER:
             return{
-                ...state
+                ...state,
+                officers: action.payload,
+                loading: false
             }
         case DELETE_OFFICER:
             return{
                 ...state,
-                officers: state.officers.filter(officer => officer.id !== action.payload)
+                officers: state.officers.filter(officer => officer._id !== action.payload)
             }
         case ADD_OFFICER:
             return{
@@ -49,6 +34,11 @@ export default function(state = initialState, action){
                     return officer
                 };
         })
+        case EVENTS_LOADING:
+            return{
+                ...state,
+                loading: true
+            }
         default:
             return state
 
