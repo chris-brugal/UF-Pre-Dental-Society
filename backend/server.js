@@ -14,6 +14,8 @@ const auth = require('./routes/api/auth')
 const database = require('./config/keys.js').mongoURI;
 const { ensureIndexes } = require('./models/Event');
 
+require('dotenv').config()
+
 const app = express();
 const PORT = process.env.PORT || 5000;
 

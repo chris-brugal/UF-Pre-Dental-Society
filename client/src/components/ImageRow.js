@@ -9,7 +9,7 @@ import pottery from '../images/pottery.jpg';
 
 function ImageRow() {
     return (
-        <div class="image-container">
+        <div className="image-container">
             <img src={group} alt="UF PDS members wearing matching Molar Wars shirts" className="group"/>
             <img src={bowling} alt="UF PDS members at a bowling alley" className="bowling"/>
             <img src={event} alt="UF PDS members at a service event" className="event"/>
