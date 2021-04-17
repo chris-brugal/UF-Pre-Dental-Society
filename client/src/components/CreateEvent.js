@@ -22,14 +22,14 @@ class EventList extends Component {
           <section className = 'event-container'>
             <ListGroup>
                 <TransitionGroup className="event-list">
-                    {events.map(({id, title, time, location, description}) => (
-                        <CSSTransition key={id} timeout={100} classNames="item">
+                    {events.map(({_id, title, time, location, description}) => (
+                        <CSSTransition key={_id} timeout={100} classNames="item">
                             <ListGroupItem>
                                 <Button
                                     className="remove-btn"
                                     variant="danger"
                                     size="sm"
-                                    onClick={this.onDeleteClick.bind(this, id)}
+                                    onClick={this.onDeleteClick.bind(this, _id)}
                                     >
                                     &times;
                                 </Button>
@@ -46,7 +46,6 @@ class EventList extends Component {
     }
 }
         
-
 EventList.propTypes = {
     getEvent: PropTypes.func.isRequired,
     event: PropTypes.object.isRequired

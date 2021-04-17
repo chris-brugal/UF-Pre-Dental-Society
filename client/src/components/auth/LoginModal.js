@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Input, NavLink, Alert } from 'reactstrap';
 import { connect } from 'react-redux';
-import './RegisterModal.css';
+import './LoginModal.css';
 import '../Navbar.css';
 import {v1 as uuid} from "uuid";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import PropTypes from 'prop-types'
-import { register } from '../../actions/authActions';
+import { login } from '../../actions/authActions';
 import { clearErrors} from '../../actions/errorActions';
 
-class RegisterModal extends Component {
+class LoginModal extends Component {
     state = {
         modal: false,
         username: '',
@@ -20,14 +20,14 @@ class RegisterModal extends Component {
     static propTypes = {
         isAuthenticated: PropTypes.bool,
         error: PropTypes.object.isRequired,
-        register: PropTypes.func.isRequired,
+        login: PropTypes.func.isRequired,
         clearErrors: PropTypes.func.isRequired
     }
 
     componentDidUpdate(prevProps) {
         const { error, isAuthenticated } = this.props;
         if(error!== prevProps.error) {
-            if (error.id === 'REGISTER_FAIL') {
+            if (error.id === 'LOGIN_FAIL') {
                 this.setState({ msg: error.msg.msg});
             } else {
                 this.setState({ msg: null });
@@ -57,26 +57,25 @@ class RegisterModal extends Component {
 
         const { username, password } = this.state;
 
-        const newUser = {
+        const user = {
             username,
             password
-        };
+        }
 
-        this.props.register(newUser);
+        this.props.login(user);
     }
 
     render() {
         return(
             <div className = 'nav-item'>
                 <NavLink className='nav-links' onClick={this.toggle} href='#'>
-                    REGISTER
+                    ADMIN   LOGIN
                 </NavLink>
-
                 <Modal
                     isOpen={this.state.modal}
                     toggle={this.toggle}
                 >
-                <ModalHeader toggle={this.toggle}>Register</ModalHeader>
+                <ModalHeader toggle={this.toggle}>Login</ModalHeader>
                 <ModalBody>
                     { this.state.msg ? (<Alert color='danger'>{this.state.msg}</Alert>) : null }
                     <Form onSubmit={this.onSubmit}>
@@ -99,7 +98,7 @@ class RegisterModal extends Component {
                                 color="dark"
                                 style={{marginTop: '2rem'}}
                                 block
-                            >Register</Button>
+                            >Login</Button>
                         </FormGroup>
                     </Form>
                 </ModalBody>
@@ -114,4 +113,4 @@ const mapStateToProps = state => ({
     error: state.error
 });
 
-export default connect(mapStateToProps, { register, clearErrors })(RegisterModal);
+export default connect(mapStateToProps, { login, clearErrors })(LoginModal);
