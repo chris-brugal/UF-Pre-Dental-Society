@@ -16,6 +16,10 @@ class EventList extends Component {
         this.props.deleteEvent(id);
     }
 
+    static propTypes = {
+        isAuthenticated: PropTypes.bool
+    }
+
     render() {
       const { events } = this.props.event; 
       return (
@@ -25,6 +29,7 @@ class EventList extends Component {
                     {events.map(({_id, title, time, location, description}) => (
                         <CSSTransition key={_id} timeout={100} classNames="item">
                             <ListGroupItem>
+                            { this.props.isAuthenticated ? 
                                 <Button
                                     className="remove-btn"
                                     variant="danger"
@@ -32,7 +37,7 @@ class EventList extends Component {
                                     onClick={this.onDeleteClick.bind(this, _id)}
                                     >
                                     &times;
-                                </Button>
+                                </Button> : null }
                                 <h3> {title} <br/>
                                 {time} | {location} <br/>
                                 {description} </h3> 
@@ -52,7 +57,8 @@ EventList.propTypes = {
 }
 
 const mapStateToProps = (state) => ({
-    event: state.event
+    event: state.event,
+    isAuthenticated: state.auth.isAuthenticated
 });
 
 export default connect(mapStateToProps, { getEvent, deleteEvent })(EventList);

@@ -76,7 +76,7 @@ class EventModal extends Component {
                                 type="text"
                                 name="time"
                                 id="event"
-                                placeholder="Date and Time"
+                                placeholder="Date/Time { mm/dd/yy @ XX:YY AM/PM }"
                                 onChange={this.onChange}
                             /> <br/>
                             <Input
