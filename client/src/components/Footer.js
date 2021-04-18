@@ -15,7 +15,8 @@ function Footer() {
                         <Button class="btn btn-light">Submit</Button>
                     </form>
                 </div>
-                <p className="footer-subscription-text">Contact our president at pds.president@gmail.com</p>
+                <p className="footer-subscription-text-1">Contact our president at pds.president@gmail.com</p>
+                <p className="footer-subscription-text-2">Text @ufpds2020 to 81010 to stay updated!</p>
             </section>
             <section className="social-media">
                 <div className="social-media-wrap">
