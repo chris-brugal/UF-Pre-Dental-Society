@@ -35,7 +35,6 @@ class OfficerModal extends Component {
         e.preventDefault();
 
         const newOfficer = {
-            id: uuid(),
             displayName: this.state.displayName,
             position: this.state.position,
             bio: this.state.bio,
@@ -98,7 +97,13 @@ class OfficerModal extends Component {
                                         placeholder='Rank number to set order on page (Ex: 1 = First Photo on Page)'
                                         onChange={this.onChange}
                                     /> <br/>
-
+                                    <Input
+                                        type="text"
+                                        name="image"
+                                        id='officer'
+                                        placeholder='Image URL'
+                                        onChange={this.onChange}
+                                    /> <br/>
                                     <Button
                                     color="dark"
                                     style ={{marginTop: '2rem' }} block
