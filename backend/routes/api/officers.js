@@ -1,7 +1,18 @@
 const express = require('express');
 const router = express.Router();
+const multer = require("multer"); //Needed for image uploading
 const Officer = require('../../models/Officer.js');
 
+const storage = multer.diskStorage({
+    destination: (req, file, callback) => {
+        callback(null, "./client/public/uploads");
+    },
+    filename: (req,file,callback) =>{
+        callback(null, file.originalname);
+    }
+})
+
+const upload = multer({storage: storage});
 
 router.get('/', (req, res) => {
     Officer.find()
@@ -10,12 +21,12 @@ router.get('/', (req, res) => {
         .catch(err => console.log(err));
 });
 
-router.post('/', (req, res) => {
+router.post('/', upload.single("image"), (req, res) => {
     const newOfficer = new Officer({
         displayName: req.body.displayName,
         position: req.body.position,
         bio: req.body.bio,
-        image: req.body.image,
+        image: req.file.originalname,
         rank: req.body.rank
     });
 
@@ -36,7 +47,7 @@ router.delete('/:id', (req,res) => {
         })));
 });
 
-router.put('/:id', (req,res) => {
+router.put('/:id', upload.single("articleName"), (req,res) => {
     Officer.findById(req.params.id, function(err, officer){
         if(!officer){
             res.status(404).send("The officer is not found");
@@ -44,7 +55,7 @@ router.put('/:id', (req,res) => {
             officer.displayName = req.body.displayName;
             officer.position = req.body.position;
             officer.bio = req.body.bio;
-            officer.image = req.body.image;
+            officer.image = req.file.originalname;
             officer.rank = req.body.rank;
 
             officer.save()

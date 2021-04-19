@@ -39,7 +39,7 @@ class OfficerModal extends Component {
             displayName: this.state.displayName,
             position: this.state.position,
             bio: this.state.bio,
-            image: this.state.image,
+            image: this.state.fileName,
             rank: this.state.rank
         }
 
@@ -92,10 +92,17 @@ class OfficerModal extends Component {
                                         onChange={this.onChange}
                                     /> <br/>
                                     <Input
+                                        type="file"
+                                        name="image"
+                                       // id='officer'
+                                       // placeholder='Rank number to set order on page (Ex: 1 = First Photo on Page)'
+                                        onChange={this.onChange}
+                                    /> <br/>
+                                    <Input
                                         type="text"
-                                        name="rank"
+                                        name="bio"
                                         id='officer'
-                                        placeholder='Rank number to set order on page (Ex: 1 = First Photo on Page)'
+                                        placeholder='Bio'
                                         onChange={this.onChange}
                                     /> <br/>
 
