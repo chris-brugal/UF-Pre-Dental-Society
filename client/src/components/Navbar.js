@@ -43,7 +43,7 @@ class Header extends Component {
               { this.props.isAuthenticated ? 
               <NavItem><Logout /></NavItem> :
               <NavItem><LoginModal /></NavItem> }
-              { true ? <NavItem><RegisterModal /></NavItem> : null}
+              { false ? <NavItem><RegisterModal /></NavItem> : null}
             </Nav>
           </Collapse>
         </Navbar>
