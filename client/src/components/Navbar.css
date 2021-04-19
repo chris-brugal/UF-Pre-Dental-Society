@@ -1,0 +1,12 @@
+.navbar-nav > li{
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .navbar {
+    text-align: center;
+}
+
+.nav {
+    display: inline-block;
+}
