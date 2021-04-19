@@ -22,10 +22,6 @@ class App extends Component {
   render() {
     return (
       <>
-      <MetaTags>
-        <title>UF Pre-Dental Society</title>
-        <meta id='meta-description' name='description' content='The official website and information page of the University of Florida Pre-Dental Society.' />
-      </MetaTags>
       <Provider store={store}>
       <Router>
         <Navbar/>
