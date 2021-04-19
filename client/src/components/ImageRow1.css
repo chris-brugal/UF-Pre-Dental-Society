@@ -7,9 +7,11 @@
   margin-right: 12px;
 }
 
+
 .group {
   margin-left: 12px;
 }
+
 
 @media screen and (min-width: 300px) {
   .image-container {
