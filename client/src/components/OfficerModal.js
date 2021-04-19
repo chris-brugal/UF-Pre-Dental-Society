@@ -6,6 +6,7 @@ import './CreateOfficer.css';
 import PropTypes from 'prop-types';
 import {v1 as uuid} from "uuid";
 
+var tempPath = '';
 
 class OfficerModal extends Component {
     state = {
@@ -13,9 +14,11 @@ class OfficerModal extends Component {
         displayName: '',
         position: '',
         bio: '',
-        image: 'Image belongs here',
+        image: '',
         rank: ''
     };
+
+   
 
     static propTypes = {
         isAuthenticated: PropTypes.bool
@@ -31,6 +34,15 @@ class OfficerModal extends Component {
         this.setState({ [e.target.name]: e.target.value});
     }
 
+    onChangeFile = e => {
+        e.preventDefault();
+       // tempPath = req.file.path;
+        const formData = new FormData();
+        const image = e.target.files[0];
+        formData.append("image", image);
+        this.setState({ image });
+    }
+
     onSubmit = e => {
         e.preventDefault();
 
@@ -39,7 +51,7 @@ class OfficerModal extends Component {
             displayName: this.state.displayName,
             position: this.state.position,
             bio: this.state.bio,
-            image: this.state.fileName,
+            image: this.state.image,
             rank: this.state.rank
         }
 
@@ -68,7 +80,7 @@ class OfficerModal extends Component {
                     >
                         <ModalHeader toggle={this.toggle}>Add an officer</ModalHeader>
                         <ModalBody> 
-                            <Form onSubmit={this.onSubmit}>
+                            <Form onSubmit={this.onSubmit} encType="multipart/form-data">
                                 <FormGroup>
                                     <Input
                                         type="text"
@@ -92,18 +104,18 @@ class OfficerModal extends Component {
                                         onChange={this.onChange}
                                     /> <br/>
                                     <Input
-                                        type="file"
-                                        name="image"
-                                       // id='officer'
-                                       // placeholder='Rank number to set order on page (Ex: 1 = First Photo on Page)'
+                                        type="text"
+                                        name="rank"
+                                        id='officer'
+                                        placeholder='Rank number to set order on page (Ex: 1 = First Photo on Page)'
                                         onChange={this.onChange}
                                     /> <br/>
                                     <Input
-                                        type="text"
-                                        name="bio"
+                                        type="file"
+                                        name="image"
                                         id='officer'
-                                        placeholder='Bio'
-                                        onChange={this.onChange}
+                                        //placeholder='Bio'
+                                        onChange={this.onChangeFile}
                                     /> <br/>
 
                                     <Button

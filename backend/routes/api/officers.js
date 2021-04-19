@@ -5,10 +5,11 @@ const Officer = require('../../models/Officer.js');
 
 const storage = multer.diskStorage({
     destination: (req, file, callback) => {
-        callback(null, "./client/public/uploads");
+        callback(null, '../../../client/public/uploads');
     },
     filename: (req,file,callback) =>{
-        callback(null, file.originalname);
+        var ext = file.originalname.split('.').pop();
+        callback(null, file.fieldname + '-' + Date.now() + '.' + ext);
     }
 })
 
@@ -22,11 +23,12 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', upload.single("image"), (req, res) => {
+    console.log(req.file);
     const newOfficer = new Officer({
         displayName: req.body.displayName,
         position: req.body.position,
         bio: req.body.bio,
-        image: req.file.originalname,
+        image: req.file.originalfile,
         rank: req.body.rank
     });
 
@@ -47,7 +49,7 @@ router.delete('/:id', (req,res) => {
         })));
 });
 
-router.put('/:id', upload.single("articleName"), (req,res) => {
+router.put('/:id', upload.single("image"), (req,res) => {
     Officer.findById(req.params.id, function(err, officer){
         if(!officer){
             res.status(404).send("The officer is not found");
