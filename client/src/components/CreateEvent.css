@@ -15,10 +15,16 @@
 h3 {
     margin-top: 25px;
     line-height: 1.5;
-    padding: 0 2em 2em;
+    padding: 0 1em 1em;
     text-align: center;
 }
 
 ul {
     list-style-type: none;
+}
+
+.individual-item {
+    border-width: 4px; 
+    border-style: solid; 
+    border-color: black;
 }

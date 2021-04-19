@@ -1,3 +1,4 @@
+  
 import React from 'react';
 import { Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
@@ -9,7 +10,8 @@ function Footer() {
             <section className="footer-subscription">
                 <p className="footer-subscription-heading">Contact our president at pds.president@gmail.com</p>
                 <a target="_blank" className="btn btn-secondary" href="mailto:pds.president@gmail.com">SIGN UP FOR OUR LISTSERV!</a>
-                <p className="footer-subscription-text">Put "Listserv Request" in the Subject</p>
+                <p className="footer-subscription-text-1">Put "Listserv Request" in the Subject</p>
+                <p className="footer-subscription-text-2">Text @ufpds2020 to 81010 to stay updated!</p>
             </section>
             <section className="social-media">
                 <div className="social-media-wrap">
