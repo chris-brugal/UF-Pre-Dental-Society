@@ -1,6 +1,7 @@
 import React from 'react';
 import "./Navbar.css";
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default class Header extends React.Component {
   constructor(props) {
