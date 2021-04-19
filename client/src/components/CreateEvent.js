@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Container, ListGroup, ListGroupItem, Button } from 'reactstrap'; //install reactstrap
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { connect } from 'react-redux';
@@ -28,7 +28,7 @@ class EventList extends Component {
                 <TransitionGroup className="event-list">
                     {events.map(({_id, title, time, location, description}) => (
                         <CSSTransition key={_id} timeout={100} classNames="item">
-                            <ListGroupItem>
+                            <ListGroupItem className='individual-item'>
                             { this.props.isAuthenticated ? 
                                 <Button
                                     className="remove-btn"
