@@ -8,8 +8,8 @@ const storage = multer.diskStorage({
         callback(null, '../../../client/public/uploads');
     },
     filename: (req,file,callback) =>{
-        var ext = file.originalname.split('.').pop();
-        callback(null, file.fieldname + '-' + Date.now() + '.' + ext);
+        
+        callback(null, file.originalname);
     }
 })
 
@@ -23,7 +23,7 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', upload.single("image"), (req, res) => {
-    console.log(req.file);
+   
     const newOfficer = new Officer({
         displayName: req.body.displayName,
         position: req.body.position,

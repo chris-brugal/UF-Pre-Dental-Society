@@ -4,7 +4,9 @@ import { connect } from 'react-redux';
 import { addOfficer } from '../actions/officerActions';
 import './CreateOfficer.css';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 import {v1 as uuid} from "uuid";
+
 
 var tempPath = '';
 
@@ -35,11 +37,17 @@ class OfficerModal extends Component {
     }
 
     onChangeFile = e => {
-        e.preventDefault();
+        //e.preventDefault();
        // tempPath = req.file.path;
         const formData = new FormData();
         const image = e.target.files[0];
         formData.append("image", image);
+       
+        //ATTN: Right here is where I think the bug is.  In the tutorial and stack overflow page,
+        //they pass specifically to the router.post API, but something stops working if I add
+        //a filepath to the router.post 
+        //I've tried NOT using axios, but that doesn't seem to work for me either
+        axios.post("../../../backend/routes/api/officers/", formData);
         this.setState({ image });
     }
 
