@@ -13,7 +13,7 @@ class OfficerModal extends Component {
         displayName: '',
         position: '',
         bio: '',
-        image: 'Image belongs here',
+        image: '',
         rank: ''
     };
 

@@ -1,4 +1,3 @@
-  
 import React from 'react';
 import { Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
@@ -9,8 +8,7 @@ function Footer() {
         <div className='footer-container'>
             <section className="footer-subscription">
                 <p className="footer-subscription-heading">Contact our president at pds.president@gmail.com</p>
-                <a target="_blank" className="btn btn-secondary" href="mailto:pds.president@gmail.com">SIGN UP FOR OUR LISTSERV!</a>
-                <p className="footer-subscription-text-1">Put "Listserv Request" in the Subject</p>
+                <a target="_blank" className="btn btn-secondary" href="https://wixsite.us17.list-manage.com/subscribe?u=f8ef4022e6e3bfe8bc37dc2dd&id=32e892d4f5">SIGN UP FOR OUR EMAILS!</a>
                 <p className="footer-subscription-text-2">Text @ufpds2020 to 81010 to stay updated!</p>
             </section>
             <section className="social-media">
