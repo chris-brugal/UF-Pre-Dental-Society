@@ -2,11 +2,14 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Link
+The website was deployed with [Heroku](heroku.com) and can be found [here](https://uf-pre-dental-society.herokuapp.com/)
+
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `yarn start`
+### `npm run dev`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -14,12 +17,12 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `yarn test`
+### `npm test`
 
-Launches the test runner in the interactive watch mode.\
+Launches the mocha testing.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
+### `npm build`
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
@@ -29,15 +32,28 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
+## Managing and Maintaing the Application
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Guidelines and tips for how to make sure the application functions properly and can be maintained with time between different eboards.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Creating New Admin Accounts
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+To register a new admin log in on the website, a username/password combination must be encyrpted and sent to the working database.\
+The easiest way to do this is by going into the file 'client\src\components\Navbar.js' to enable the register branch in a local development copy.\
+<b>DO NOT DO THIS TO A DEPLOYED SET OF CODE.</b>
+On line 48, change the boolean 'false' into a 'true' and it will enable a registration tab to make a request through the UI./
+Be sure to undo this change after registering a new admin./
+New admins can also be created with direct requests to the database.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Adding Events/Officers via Pop-Up Modals
+
+When creating a new event or officer, it is important that all fields are filled or the item will not be saved and published.
+
+Specifically for officers, you need five fields: Name, Position, Bio, Rank, and Image.\
+The Name, Position, and Bio will be displayed on hover as typed.\
+The Rank is a hidden attribute that determines the order on page starting in the top left and is show when logged in as an Admin.\
+The Image field must contain an IMAGE URL. This can be created by uploading the image to any website, such as imgur.com, right clicking, and selecting "Copy image address".\
+This URL will end in an extention such as '.png', '.jpeg', etc. Images will also be squished/stretched into a square.
 
 ## Learn More
 
@@ -64,7 +80,3 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/a
 ### Deployment
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

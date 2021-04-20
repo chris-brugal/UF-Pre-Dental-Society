@@ -5,7 +5,7 @@ import './CreateOfficer.css';
 import { connect } from 'react-redux';
 import { getOfficer, deleteOfficer } from '../actions/officerActions';
 import PropTypes from 'prop-types';
-import photo from '../images/officer-default.png';
+//import photo from '../images/officer-default.png';
 
 class CreateOfficer extends Component {
 
@@ -30,7 +30,7 @@ class CreateOfficer extends Component {
                 <Container >
                     <div className ="grid-container">
                         <TransitionGroup className="officer-pics">
-                            {officers.map(({ _id, displayName, position, bio, rank }) => (
+                            {officers.map(({ _id, displayName, position, bio, rank, image }) => (
                             <CSSTransition key={_id} timeout={500} classNames="fade">
                                 <div className="hoverPhoto">
                                 { this.props.isAuthenticated ? 
@@ -41,7 +41,7 @@ class CreateOfficer extends Component {
                                     >
                                     &times;
                                 </Button> : null }
-                                <img src={photo} className='photo' width="400" height="400" alt="tree" />
+                                <img src={image} className='photo' width="400" height="400" alt="tree" />
                                     <div className="content" >
                                         <div className="text-area">
                                             <h1 className='name'>{displayName}</h1>

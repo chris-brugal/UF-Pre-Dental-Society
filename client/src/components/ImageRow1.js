@@ -1,12 +1,12 @@
 import React from 'react';
-import './ImageRow.css';
+import './ImageRow1.css';
 import '../App.css';
 import group from '../images/group.jpg';
 import bowling from '../images/bowling.jpg';
 import service from '../images/service.jpg';
 import pottery from '../images/pottery.jpg';
 
-function ImageRow() {
+function ImageRow1() {
     return (
         <div class="image-container">
             <img src={group} alt="UF PDS members wearing matching Molar Wars shirts" className="group"/>
@@ -17,4 +17,4 @@ function ImageRow() {
     )
 }
 
-export default ImageRow;
+export default ImageRow1;
