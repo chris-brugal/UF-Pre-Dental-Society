@@ -32,6 +32,28 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+## Managing and Maintaing the Application
+
+Guidelines and tips for how to make sure the application functions properly and can be maintained with time between different eboards.
+
+### Creating New Admin Accounts
+
+To register a new admin log in on the website, a username/password combination must be encyrpted and sent to the working database.\
+The easiest way to do this is by going into the file 'client\src\components\Navbar.js' to enable the register branch in a local development copy.\
+<b>DO NOT DO THIS TO A DEPLOYED SET OF CODE.</b>
+On line 48, change the boolean 'false' into a 'true' and it will enable a registration tab to make a request through the UI./
+Be sure to undo this change after registering a new admin./
+New admins can also be created with direct requests to the database.
+
+### Adding Events/Officers via Pop-Up Modals
+
+When creating a new event or officer, it is important that all fields are filled or the item will not be saved and published.
+
+Specifically for officers, you need five fields: Name, Position, Bio, Rank, and Image.\
+The Name, Position, and Bio will be displayed on hover as typed.\
+The Rank is a hidden attribute that determines the order on page starting in the top left and is show when logged in as an Admin.\
+The Image field must contain an IMAGE URL. This can be created by uploading the image to any website, such as imgur.com, right clicking, and selecting "Copy image address".\
+This URL will end in an extention such as '.png', '.jpeg', etc. Images will also be squished/stretched into a square.
 
 ## Learn More
 
